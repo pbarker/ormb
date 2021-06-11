@@ -21,6 +21,8 @@ def untar(fname, dirs):
 
 def download():
     url = 'https://api.github.com/repos/%s/releases/%s' % (REPOS, VERSION)
+    headers = {'User-Agent': 'requests'}
+    result = requests.get(url, headers=headers)
     r = requests.get(url)
 
     if r.status_code != 200:
