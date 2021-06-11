@@ -22,8 +22,7 @@ def untar(fname, dirs):
 def download():
     url = 'https://api.github.com/repos/%s/releases/%s' % (REPOS, VERSION)
     headers = {'User-Agent': 'requests'}
-    result = requests.get(url, headers=headers)
-    r = requests.get(url)
+    r = requests.get(url, headers=headers)
 
     if r.status_code != 200:
         raise Exception("get assets info err, ret code: %s" % r.status_code)
